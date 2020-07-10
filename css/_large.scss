@@ -5,7 +5,7 @@ nav {
 		border-left: 1px solid rgba(0,0,0,0.3);
 	}
 	ul li {
-		width: auto;
+		flex-basis:auto;
 	}// end li
 	ul li:last-child {border-right: 1px solid rgba(0,0,0,0.3);}
 	ul li a {
@@ -24,6 +24,15 @@ main {
 			$w: ($i/12) * 100%;
 			.large-#{$i}{width: $w; float: left;}
 		}//end width function
-    
+	
+		
+	    .container2 figure{
+			flex-basis: 25%;
+			padding: .5rem $gutter;
+		}
+	
+		.container2 figure img{
+			width: 100%;
+		}
     
 } // end main

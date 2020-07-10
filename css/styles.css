@@ -185,13 +185,27 @@ header ul.social .facebook a:hover {
 
 /*  ------------- NAV -------------  */
 nav {
-  background-color: #baa256;
+  background: #1e5799;
+  /* Old browsers */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(#1e5799), color-stop(0%, #1e5799), color-stop(0%, #1e5799), color-stop(0%, #1e5799), color-stop(0%, #1e5799), color-stop(0%, #baa256), to(#8b7739));
+  background: linear-gradient(to bottom, #1e5799 0%, #1e5799 0%, #1e5799 0%, #1e5799 0%, #1e5799 0%, #baa256 0%, #8b7739 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#ffffff',GradientType=0 );
+  /* IE6-9 */
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 nav ul li {
-  float: left;
-  width: 25%;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
   border-right: 1px solid rgba(0, 0, 0, 0.3);
 }
 
@@ -223,7 +237,6 @@ nav ul li a:hover {
 main {
   max-width: 60rem;
   min-height: 20rem;
-  /*  ------------- COLUMN LAYOUT -------------  */
 }
 
 main h1 {
@@ -236,72 +249,39 @@ main h2 {
   padding-top: 1rem;
 }
 
-main .row {
-  clear: both;
+main .container1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-main .column {
-  padding: 0 2%;
+main .container1 div {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  padding: 0.5rem 2%;
 }
 
-main .small-1 {
-  width: 8.33333%;
-  float: left;
+main .container2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
-main .small-2 {
-  width: 16.66667%;
-  float: left;
+main .container2 figure {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  padding: 0.5rem 2%;
 }
 
-main .small-3 {
-  width: 25%;
-  float: left;
-}
-
-main .small-4 {
-  width: 33.33333%;
-  float: left;
-}
-
-main .small-5 {
-  width: 41.66667%;
-  float: left;
-}
-
-main .small-6 {
-  width: 50%;
-  float: left;
-}
-
-main .small-7 {
-  width: 58.33333%;
-  float: left;
-}
-
-main .small-8 {
-  width: 66.66667%;
-  float: left;
-}
-
-main .small-9 {
-  width: 75%;
-  float: left;
-}
-
-main .small-10 {
-  width: 83.33333%;
-  float: left;
-}
-
-main .small-11 {
-  width: 91.66667%;
-  float: left;
-}
-
-main .small-12 {
+main .container2 figure img {
   width: 100%;
-  float: left;
 }
 
 /*  ------------- FOOTER -------------  */
@@ -342,56 +322,20 @@ footer p a {
     width: auto;
   }
   /*  ------------- MAIN -------------  */
-  main {
-    /*  ------------- COLUMN LAYOUT -------------  */
+  main .container1 div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0.5rem 2%;
   }
-  main .medium-1 {
-    width: 8.33333%;
-    float: left;
+  main .container2 figure {
+    -ms-flex-preferred-size: 33.333%;
+        flex-basis: 33.333%;
+    padding: 0.5rem 2%;
   }
-  main .medium-2 {
-    width: 16.66667%;
-    float: left;
-  }
-  main .medium-3 {
-    width: 25%;
-    float: left;
-  }
-  main .medium-4 {
-    width: 33.33333%;
-    float: left;
-  }
-  main .medium-5 {
-    width: 41.66667%;
-    float: left;
-  }
-  main .medium-6 {
-    width: 50%;
-    float: left;
-  }
-  main .medium-7 {
-    width: 58.33333%;
-    float: left;
-  }
-  main .medium-8 {
-    width: 66.66667%;
-    float: left;
-  }
-  main .medium-9 {
-    width: 75%;
-    float: left;
-  }
-  main .medium-10 {
-    width: 83.33333%;
-    float: left;
-  }
-  main .medium-11 {
-    width: 91.66667%;
-    float: left;
-  }
-  main .medium-12 {
+  main .container2 figure img {
     width: 100%;
-    float: left;
   }
 }
 
@@ -402,7 +346,8 @@ footer p a {
     border-left: 1px solid rgba(0, 0, 0, 0.3);
   }
   nav ul li {
-    width: auto;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
   }
   nav ul li:last-child {
     border-right: 1px solid rgba(0, 0, 0, 0.3);
@@ -462,6 +407,14 @@ footer p a {
   main .large-12 {
     width: 100%;
     float: left;
+  }
+  main .container2 figure {
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+    padding: 0.5rem 2%;
+  }
+  main .container2 figure img {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=styles.css.map */

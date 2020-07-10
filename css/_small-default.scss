@@ -66,11 +66,15 @@ header {
 
 /*  ------------- NAV -------------  */
 nav {
-	background-color: $secondaryColor;
+	@include gradient($secondaryColor, darken($secondaryColor,15%));
 	border-bottom:1px solid rgba(0,0,0,0.3);
+
+	ul{
+		display:flex;
+	}
+	
 	ul li {
-		float: left;
-		width: 25%;
+		flex-basis: 25%;
 		border-right: 1px solid rgba(0,0,0,0.3);
 	}// end li
 	ul li:last-child {border-right: none;}
@@ -110,35 +114,33 @@ main {
 	h2 {
 		padding-top: 1rem;
 	}//end of h2
-	
-	/*  ------------- COLUMN LAYOUT -------------  */
 
-	.row{clear:both;}
+	.container1{
+	display: flex;
+	flex-wrap: wrap;
+}
 
-	.column{padding: 0 $gutter;}
+	.container1 div{
+		flex-basis: 100%;
+		padding:.5rem $gutter;
+	}
 
-	@for $i from 1 through 12{
-		$w: ($i/12) * 100%;
-		.small-#{$i}{width: $w; float: left;}
-	}//end width function
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+	.container2 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+
+	.container2 figure{
+		flex-basis: 50%;
+		padding: .5rem $gutter;
+	}
+
+	.container2 figure img{
+		width: 100%;
+	}
+
+        
 	
 } // end main
 

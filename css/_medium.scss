@@ -19,12 +19,19 @@ header{
 
 main{
 
-    /*  ------------- COLUMN LAYOUT -------------  */
+    .container1 div{
+        flex-direction: column;
+        padding: .5rem $gutter;
+    }
 
-    @for $i from 1 through 12{
-        $w: ($i/12) * 100%;
-        .medium-#{$i}{width: $w; float: left;}
-    }//end width function
+    .container2 figure{
+		flex-basis: 33.333%;
+		padding: .5rem $gutter;
+	}
+
+	.container2 figure img{
+		width: 100%;
+	}
 
 }//end of main
 
