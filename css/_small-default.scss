@@ -3,150 +3,149 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 
 /*  apply a natural box layout model to all elements  */
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-
-/* ------------- BODY ------------- */
+/* BODY */
 body {
-	font-family: $defaultFont;
-	font-size: 16px;
-	font-weight: $normalWeight;
+    font-size: 16px;
+    font-family: $defaultFont;
+    font-weight: $normal;
+    color: $text;
+    background-color: #fff;
+} // end of body
+
+/* WRAPPER */
+.wrapper{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+} // end wrapper
+
+/* HEADER */
+header{
+    background-color: $primary ;
+    color: white;
+    padding: .5rem $gutter;
+    font-size:  1.5rem; 
+
+} // end of header
+
+/* NAV */
+nav{ 
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    border-top: 1px solid $dkgrey;
+    display: flex;
+
+    div {
+        flex-basis: 25%;
+        text-align: center;
+    }
+
+    div a{
+        display: block;
+        font-size: 1.7rem;
+        padding: .5rem 0;
+        color: $ltgrey;
+    }
+
+    div.active a{
+        background-color: $primary;
+        color: white;
+    }
+
+} // end of nav
+
+main{
+    padding-top: .75rem; //??
 }
 
-div#wrapper {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 3rem auto auto 3rem auto;
-	grid-template-areas: 	"hamburger social"
-							"header header"
-							"main main"
-							"footer footer"
-							"links links";
+/* MAIN ALBUM*/
+main.album{
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+
+    figure{padding: .7rem 2vw;}
+
+    figure figcaption{
+        text-align: center;
+        padding: .2rem 0;
+    }
+
+    figure a img{
+        width: 100%;
+    }
+    
+
+}// end of main album
+
+/* MAIN ARTIST*/
+main.artist{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    
+    section{
+        display: grid;
+        grid-template-columns: 80px auto;
+        margin: .75rem 5%;
+
+        div img{
+            width:100%;
+            clip-path: circle(40px at center);
+
+        }
+
+        div:nth-child(2){
+            align-self: center;
+            padding-left: 5%;
+        }
+
+    }//end of section
+
+    
+}//end of main artist
+
+
+/* MAIN ARTIST*/
+main.player{
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-auto-rows: auto;
+    grid-template-areas: 
+    "photo photo photo"
+    "time time time"
+    "startTime empty endTime"
+    "title title title"
+    "prev play next"
+    "dn vol up";
+    
+    margin-top: 1.5rem;
+
+    div.photo {grid-area: photo;}
+    div.photo img{ width: 84%; margin: 0 0 0.5rem 8%; border-radius: 40px;}
+    
+    div.time {grid-area: time; justify-self: center; width: 84%;}
+    div.time input{width: 100%;}
+	div.startTime {grid-area: startTime; text-align: right; }
+	div.endTime {grid-area: endTime; }
 	
-	background-color: $primaryColor;
-
-    
-    
-    
-    
-    
+	div.title {
+        grid-area: title;
+        span{ display: block; text-align: center;}
+        span:nth-child(1){font-size: 1.5rem; padding: 1rem 0 .3rem 0; }
+        span:nth-child(2){font-size: 1.2rem; padding-bottom: .5rem;}
+    }
 	
-}//end of wrapper
-
-
-
-
-/*  ------------- HAMBURGER -------------  */
-.hamburger {
-	grid-area: hamburger;
-	align-self: center;
-    
-	padding-left: $gutter;
-	font-size: 2rem;
-	a {color: white; text-decoration: none;}
-}
-
-/*  ------------- SOCIAL -------------  */
-div.social {
-	grid-area: social;
-    justify-self: end;
-    align-self: center;
-    
-	padding-right: $gutter;
-	a {
-		font-size: 1.8rem;
-		padding-left: .5rem;
-		color: white;
-	}
-	a:hover{color:$secondaryColor;}
+	div.previous {grid-area: prev; text-align: right;font-size: 1.5rem;}
+	div.play {grid-area: play; justify-self: center;font-size: 1.5rem; padding-bottom: 1rem;}
+	div.next {grid-area: next;font-size: 1.5rem;}
 	
-}
-
-/*  ------------- HEADER -------------  */
-header {
-	grid-area: header;
-	
-	color: $secondaryColor;
-	padding:  1rem $gutter;
-	h1 {
-		font-size: 2rem;
-		font-weight: $normalWeight;
-	} //end h1 rules
+	div.voldn {grid-area: dn; justify-self: end; text-align: right; font-size: 1.5rem;}
+	div.volume {grid-area: vol; justify-self: center; font-size: 1.5rem;} 
+	div.volup {grid-area: up;justify-self: start; font-size: 1.5rem;}
     
-	h2 {
-		font-size: 1.12rem;
-        font-weight: $normalWeight;
-	} //end h2 rules
-} // end header
 
-
-
-
-
-
-/*  ------------- NAV -------------  */
-nav {
-	grid-area: links;
-	background-color: $secondaryColor;
-	height: 100vh;
-	ul li a {
-		display: block;
-		text-align: center;
-		margin: .5rem $gutter;
-		padding: .5rem;
-		background-color: rgba(255,255,255,0.2);
-		border-radius: 1rem;
-		color: $primaryColor;
-		text-decoration: none;
-	}
-	ul li a:hover {color:white;}
-} // end nav
-
-
-
-
-
-
-/*  ------------- MAIN -------------  */
-main {
-	grid-area: main;
-	min-height: 300px;
-	background-color: white;
-	p {margin: 1rem $gutter;}
-	h1 {
-		font-size: 2rem;
-		margin: 1.5rem $gutter .5rem $gutter;
-		color: $primaryColor;
-	} // end h1
-} // end main
-
-
-
-
-
-
-
-/*  ------------- FOOTER -------------  */
-footer {
-	grid-area: footer;
-	
-	
-	p {
-		text-align: center;
-		color: $secondaryColor;
-		padding: .75rem 0;
-		font-size: .9rem;
-	} // end p
-    
-	p a {color: $secondaryColor;}
-} // end footer
-
-
-
-
-
-
-/*----- Clearfix: Force an Element not to collapse -----*/
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+}//end of main player

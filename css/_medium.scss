@@ -1,23 +1,19 @@
-div#wrapper {
-	grid-template-columns: 10rem auto 12rem;
-	grid-template-rows: 5rem auto 3rem;
-	grid-template-areas: "header header social"
-	"links main main "
-	"footer footer footer";
+main.album{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}//end of main album
 
-}
+main.artist{
+    grid-template-columns: 1fr 1fr;
+}//end of main artist
 
+main.player{
 
-/*  ------------- HAMBURGER -------------  */
-.hamburger {
-	display: none;
-}
+    grid-template-columns: 50% 50px auto 50px;
+    grid-auto-rows: auto;
+    grid-template-areas: 
+    "photo startTime time endTime"
+    "photo title title title"
+    "photo prev play next"
+    "photo dn vol up";
 
-/*  ------------- NAV -------------  */
-nav {
-
-	height: auto;
-	ul li {border-bottom: 1px solid $primaryColor; }
-	ul li a {border-radius: 0; background-color: transparent; margin: 0;}
-	
-} // end nav
+}//end of main player

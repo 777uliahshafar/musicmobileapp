@@ -1,10 +1,12 @@
-$primaryColor: #302b27;
-$secondaryColor:#baa256;
-$fontColor: #dce2eb;
+$primary: #553285;
+$secondary: #36175E;
+$ltgrey: #aaa;
+$dkgrey: #666;
 
-$defaultFont: 'Lato', sans-serif;
-$normalWeight: 300;
-$boldWeight: 700;
+$text: $secondary;
+$defaultFont: 'Source Sans Pro', sans-serif;
+
+$normal: 400;
+$bold: 700;
 
 $gutter: 2%;
-$gutterdbl: (2 * $gutter);
